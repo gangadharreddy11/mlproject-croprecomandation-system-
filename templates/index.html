@@ -1,0 +1,135 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Crop Recommendation System</h1>
+    <p class="subtitle">Enter soil and weather details to get a crop suggestion</p>
+
+    <form action="{{ url_for('predict') }}" method="POST" id="cropForm">
+        <div class="form-row">
+            <label for="N">Nitrogen (N)</label>
+            <input type="number" step="any" name="N" id="N" required>
+        </div>
+
+        <div class="form-row">
+            <label for="P">Phosphorus (P)</label>
+            <input type="number" step="any" name="P" id="P" required>
+        </div>
+
+        <div class="form-row">
+            <label for="K">Potassium (K)</label>
+            <input type="number" step="any" name="K" id="K" required>
+        </div>
+
+        <div class="form-row">
+            <label for="temperature">Temperature (°C)</label>
+            <input type="number" step="any" name="temperature" id="temperature" required>
+        </div>
+
+        <div class="form-row">
+            <label for="humidity">Humidity (%)</label>
+            <input type="number" step="any" name="humidity" id="humidity" required>
+        </div>
+
+        <div class="form-row">
+            <label for="ph">pH</label>
+            <input type="number" step="any" name="ph" id="ph" required>
+        </div>
+
+        <div class="form-row">
+            <label for="rainfall">Rainfall (mm)</label>
+            <input type="number" step="any" name="rainfall" id="rainfall" required>
+        </div>
+
+        <button type="submit" class="btn">Predict Crop</button>
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">
+        <h2>{{ prediction_text }}</h2>
+    </div>
+    {% endif %}
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> -->
+
+
+<!-- ======= crop suggetion ========== -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Crop Recommendation System</h1>
+    <p class="subtitle">Enter soil and weather details to get a crop suggestion</p>
+
+    <form action="{{ url_for('predict') }}" method="POST" id="cropForm">
+        <div class="form-row">
+            <label for="N">Nitrogen (N)</label>
+            <input type="number" step="any" name="N" id="N" required>
+        </div>
+
+        <div class="form-row">
+            <label for="P">Phosphorus (P)</label>
+            <input type="number" step="any" name="P" id="P" required>
+        </div>
+
+        <div class="form-row">
+            <label for="K">Potassium (K)</label>
+            <input type="number" step="any" name="K" id="K" required>
+        </div>
+
+        <div class="form-row">
+            <label for="temperature">Temperature (°C)</label>
+            <input type="number" step="any" name="temperature" id="temperature" required>
+        </div>
+
+        <div class="form-row">
+            <label for="humidity">Humidity (%)</label>
+            <input type="number" step="any" name="humidity" id="humidity" required>
+        </div>
+
+        <div class="form-row">
+            <label for="ph">pH</label>
+            <input type="number" step="any" name="ph" id="ph" required>
+        </div>
+
+        <div class="form-row">
+            <label for="rainfall">Rainfall (mm)</label>
+            <input type="number" step="any" name="rainfall" id="rainfall" required>
+        </div>
+
+        <button type="submit" class="btn">Predict Crop</button>
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">
+        <h2>{{ prediction_text }}</h2>
+
+        {% if nutrients %}
+            <p><strong>Nutrients:</strong> {{ nutrients }}</p>
+        {% endif %}
+
+        {% if vitamins %}
+            <p><strong>Vitamins:</strong> {{ vitamins }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
